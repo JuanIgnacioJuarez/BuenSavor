@@ -1,5 +1,6 @@
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Promocion {
     private String denominacion;
@@ -10,8 +11,8 @@ public class Promocion {
     private String descripcionDescuento;
     private Double precioPromocional;
     private TipoPromocion tipoPromocion;
-    private ArrayList<Imagen> imagenes;
-    private ArrayList<Articulo> articulos;
+    private Set<ImagenComida> imagenes = new HashSet<>();
+    private Set<Articulo> articulos = new HashSet<>();
 
     public Promocion() {}
 
@@ -50,29 +51,33 @@ public class Promocion {
     public TipoPromocion getTipoPromocion() {return tipoPromocion;}
     public void setTipoPromocion(TipoPromocion tipoPromocion) {this.tipoPromocion = tipoPromocion;}
 
-    public ArrayList<Imagen> getImagenes() {return imagenes;}
-    public void setImagenes(ArrayList<Imagen> imagenes) {this.imagenes = imagenes;}
+    public Set<ImagenComida> getImagenes() {return imagenes;}
+    public void setImagenes(Set<ImagenComida> imagenes) {this.imagenes = imagenes;}
 
-    public ArrayList<Articulo> getArticulos() {return articulos;}
-    public void setArticulos(ArrayList<Articulo> articulos) {this.articulos = articulos;}
+    public Set<Articulo> getArticulos() {return articulos;}
+    public void setArticulos(Set<Articulo> articulos) {this.articulos = articulos;}
 
-    public void addImagen(Imagen i){
-        if (imagenes == null) imagenes = new ArrayList<>();
-        imagenes.add(i);
+    public void addImagen(ImagenComida i){
+        if (i != null){
+            imagenes.add(i);
+        }
     }
 
-    public void removeImagen(Imagen i){
-        imagenes.remove(i);
+    public void removeImagen(ImagenComida i){
+        if (imagenes.contains(i)){
+            imagenes.remove(i);
+        }
     }
 
     public void addArticulo(Articulo a){
-        if (articulos == null) articulos = new ArrayList<>();
-        articulos.add(a);
-        a.addPromocion(this);
+        if (a != null){
+            articulos.add(a);
+        }
     }
 
     public void removeArticulo(Articulo a){
-        articulos.remove(a);
-        a.removePromocion(this);
+        if (articulos.contains(a)){
+            articulos.remove(a);
+        }
     }
 }

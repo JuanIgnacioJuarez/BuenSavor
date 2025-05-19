@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Cliente {
     private String nombre;
@@ -7,10 +9,10 @@ public class Cliente {
     private String telefono;
     private String email;
     private Date fechaNacimiento;
-    private ArrayList<Domicilio> domicilios;
-    private ArrayList<Pedido> pedidos;
+    private Set<Domicilio> domicilios = new HashSet<>();
+    private Set<Pedido> pedidos = new HashSet<>();
     private Usuario usuario;
-    private Imagen imagen;
+    private ImagenPersona imagen;
 
     public Cliente() {}
 
@@ -48,35 +50,40 @@ public class Cliente {
     public Date getFechaNacimiento() {return fechaNacimiento;}
     public void setFechaNacimiento(Date fechaNacimiento) {this.fechaNacimiento = fechaNacimiento;}
 
-    public ArrayList<Pedido> getPedidos() {return pedidos;}
-    public void setPedidos(ArrayList<Pedido> pedidos) {this.pedidos = pedidos;}
+    public Set<Pedido> getPedidos() {return pedidos;}
+    public void setPedidos(Set<Pedido> pedidos) {this.pedidos = pedidos;}
 
-    public ArrayList<Domicilio> getDomicilios() {return domicilios;}
-    public void setDomicilios(ArrayList<Domicilio> domicilios) {this.domicilios = domicilios;}
+    public Set<Domicilio> getDomicilios() {return domicilios;}
+    public void setDomicilios(Set<Domicilio> domicilios) {this.domicilios = domicilios;}
 
     public Usuario getUsuario() {return usuario;}
     public void setUsuario(Usuario usuario) {this.usuario = usuario;}
 
-    public Imagen getImagen() {return imagen;}
-    public void setImagen(Imagen imagen) {this.imagen = imagen;}
+    public ImagenPersona getImagen() {return imagen;}
+    public void setImagen(ImagenPersona imagen) {this.imagen = imagen;}
 
     public void addPedido(Pedido p){
-        if (pedidos == null) pedidos = new ArrayList<>();
-        pedidos.add(p);
-        p.setCliente(this);
+        if (p != null){
+            pedidos.add(p);
+        }
     }
 
     public void removePedido(Pedido p){
-        pedidos.remove(p);
+        if (pedidos.contains(p)){
+            pedidos.remove(p);
+        }
     }
 
     public void addDomicilio(Domicilio d){
-        if (domicilios == null) domicilios = new ArrayList<>();
-        domicilios.add(d);
+        if (d != null){
+            domicilios.add(d);
+        }
     }
 
     public void removeDomicilio(Domicilio d){
-        domicilios.remove(d);
+        if (domicilios.contains(d)){
+            domicilios.remove(d);
+        }
     }
 
 

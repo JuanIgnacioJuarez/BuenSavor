@@ -11,7 +11,6 @@ public class Domicilio {
         this.numero = numero;
         this.cp = cp;
         this.localidad = localidad;
-        localidad.addDomicilio(this);
     }
 
     public String getCalle() {return calle;}
@@ -24,8 +23,5 @@ public class Domicilio {
     public void setCp(int cp) {this.cp = cp;}
 
     public Localidad getLocalidad() {return localidad;}
-    public void setLocalidad(Localidad localidad) {
-        this.localidad = localidad;
-        localidad.addDomicilio(this);
-    }
+    public void setLocalidad(Localidad localidad) {this.localidad = localidad;}
 }

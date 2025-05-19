@@ -1,5 +1,6 @@
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Pedido {
     private Date horaEstimadaFinalizacion;
@@ -12,7 +13,7 @@ public class Pedido {
     private Sucursal sucursal;
     private Domicilio domicilio;
     private Factura factura;
-    private ArrayList<DetallePedido> detallesPedido;
+    private Set<DetallePedido> detallesPedido = new HashSet<>();
 
     public Pedido() {}
 
@@ -23,6 +24,18 @@ public class Pedido {
         this.tipoEnvio = tipoEnvio;
         this.formaPago = formaPago;
         this.fechaPedido = fechaPedido;
+    }
+
+    public Pedido(Date horaEstimadaFinalizacion, Double total, Double totalCosto, Estado estado, TipoEnvio tipoEnvio, FormaPago formaPago, Date fechaPedido, Sucursal sucursal, Domicilio domicilio) {
+        this.horaEstimadaFinalizacion = horaEstimadaFinalizacion;
+        this.total = total;
+        this.totalCosto = totalCosto;
+        this.estado = estado;
+        this.tipoEnvio = tipoEnvio;
+        this.formaPago = formaPago;
+        this.fechaPedido = fechaPedido;
+        this.sucursal = sucursal;
+        this.domicilio = domicilio;
     }
 
     public Date getHoraEstimadaFinalizacion() {return horaEstimadaFinalizacion;}
@@ -57,12 +70,20 @@ public class Pedido {
         this.factura = factura;
     }
 
+    public Set<DetallePedido> getDetallesPedido() {return detallesPedido;}
+    public void setDetallesPedido(Set<DetallePedido> detallesPedido) {this.detallesPedido = detallesPedido;}
+
     public void addDetallePedido(DetallePedido d){
-        if (detallesPedido == null) detallesPedido = new ArrayList<>();
-        detallesPedido.add(d);
+        if (d != null){
+            detallesPedido.add(d);
+            //Cada vez que agrego algo calcular total
+        }
     }
 
     public void removeDetallePedido(DetallePedido d){
-        detallesPedido.remove(d);
+        if (detallesPedido.contains(d)){
+            detallesPedido.remove(d);
+            //Recalcular total eliminando el detalle
+        }
     }
 }

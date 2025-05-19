@@ -1,10 +1,11 @@
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Empresa {
     private String nombre;
     private String razonSocial;
     private int cuil;
-    private ArrayList<Sucursal> sucursales;
+    private Set<Sucursal> sucursales = new HashSet<>();
 
     public Empresa() {}
 
@@ -27,15 +28,18 @@ public class Empresa {
     public int getCuil() {return cuil;}
     public void setCuil(int cuil) {this.cuil = cuil;}
 
-    public ArrayList<Sucursal> getSucursales() {return sucursales;}
-    public void setSucursales(ArrayList<Sucursal> sucursales) {this.sucursales = sucursales;}
+    public Set<Sucursal> getSucursales() {return sucursales;}
+    public void setSucursales(Set<Sucursal> sucursales) {this.sucursales = sucursales;}
 
     public void addSucursal(Sucursal s){
-        if (sucursales == null) sucursales = new ArrayList<>();
-        sucursales.add(s);
+        if (s != null){
+            sucursales.add(s);
+        }
     }
 
     public void removeSucursal(Sucursal s){
-        sucursales.remove(s);
+        if (sucursales.contains(s)){
+            sucursales.remove(s);
+        }
     }
 }

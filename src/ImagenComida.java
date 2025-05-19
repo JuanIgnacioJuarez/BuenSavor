@@ -1,9 +1,9 @@
-public class Imagen {
+public class ImagenComida {
     private String denominacion;
 
-    public Imagen() {}
+    public ImagenComida() {}
 
-    public Imagen(String denominacion) {
+    public ImagenComida(String denominacion) {
         this.denominacion = denominacion;
     }
 

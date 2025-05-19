@@ -1,13 +1,14 @@
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Sucursal {
     private String nombre;
     private Date horarioApertura;
     private Date horarioCierre;
     private Domicilio domicilio;
-    private ArrayList<Categoria> categorias;
-    private ArrayList<Promocion> promociones;
+    private Set<Categoria> categorias = new HashSet<>();
+    private Set<Promocion> promociones = new HashSet<>();
 
     public Sucursal() {}
 
@@ -39,27 +40,33 @@ public class Sucursal {
     public Domicilio getDomicilio() {return domicilio;}
     public void setDomicilio(Domicilio domicilio) {this.domicilio = domicilio;}
 
-    public ArrayList<Categoria> getCategorias() {return categorias;}
-    public void setCategorias(ArrayList<Categoria> categorias) {this.categorias = categorias;}
+    public Set<Categoria> getCategorias() {return categorias;}
+    public void setCategorias(Set<Categoria> categorias) {this.categorias = categorias;}
 
-    public ArrayList<Promocion> getPromociones() {return promociones;}
-    public void setPromociones(ArrayList<Promocion> promociones) {this.promociones = promociones;}
+    public Set<Promocion> getPromociones() {return promociones;}
+    public void setPromociones(Set<Promocion> promociones) {this.promociones = promociones;}
 
     public void addCategoria(Categoria c){
-        if (categorias == null) categorias = new ArrayList<>();
-        categorias.add(c);
+        if (c != null){
+            categorias.add(c);
+        }
     }
 
     public void removeCategoria(Categoria c){
-        categorias.remove(c);
+        if (categorias.contains(c)){
+            categorias.remove(c);
+        }
     }
 
     public void addPromocion(Promocion p){
-        if (promociones == null) promociones = new ArrayList<>();
-        promociones.add(p);
+        if (p != null);{
+            promociones.add(p);
+        }
     }
 
     public void removePromocion(Promocion p){
-        promociones.remove(p);
+        if (promociones.contains(p)){
+            promociones.remove(p);
+        }
     }
 }

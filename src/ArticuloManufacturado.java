@@ -1,10 +1,11 @@
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ArticuloManufacturado extends Articulo{
     private String descripcion;
     private int tiempoEstimadoMinutos;
     private String preparacion;
-    private ArrayList<ProductoManufacturadoDetalle> pmd;
+    private Set<ProductoManufacturadoDetalle> pmd = new HashSet<>();
 
     public ArticuloManufacturado(String denominacion, Double precioVenta) {
         super(denominacion, precioVenta);
@@ -31,16 +32,19 @@ public class ArticuloManufacturado extends Articulo{
     public String getPreparacion() {return preparacion;}
     public void setPreparacion(String preparacion) {this.preparacion = preparacion;}
 
-    public ArrayList<ProductoManufacturadoDetalle> getPmd() {return pmd;}
-    public void stePmd(ArrayList<ProductoManufacturadoDetalle> pmd) {this.pmd = pmd;}
+    public Set<ProductoManufacturadoDetalle> getPmd() {return pmd;}
+    public void stePmd(Set<ProductoManufacturadoDetalle> pmd) {this.pmd = pmd;}
 
     public void addPmd(ProductoManufacturadoDetalle p){
-        if (pmd == null) pmd = new ArrayList<>();
-        pmd.add(p);
+        if (p != null){
+            pmd.add(p);
+        }
     }
 
     public void removePmd(ProductoManufacturadoDetalle p){
-        pmd.remove(p);
+        if (pmd.contains(p)){
+            pmd.remove(p);
+        }
     }
 
 
