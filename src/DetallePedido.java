@@ -1,7 +1,6 @@
 public class DetallePedido {
     private int cantidad;
     private Double subTotal;
-    private Pedido pedido;
     private Articulo articulo;
 
     public DetallePedido() {}
@@ -16,9 +15,6 @@ public class DetallePedido {
 
     public Double getSubTotal() {return subTotal;}
     public void setSubTotal(Double subTotal) {this.subTotal = subTotal;}
-
-    public Pedido getPedido() {return pedido;}
-    public void setPedido(Pedido pedido) {this.pedido = pedido;}
 
     public Articulo getArticulo() {return articulo;}
     public void setArticulo(Articulo articulo) {this.articulo = articulo;}

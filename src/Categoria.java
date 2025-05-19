@@ -4,7 +4,7 @@ public class Categoria {
     private String denominacion;
     private Categoria categoriaPadre;
     private ArrayList<Categoria> subCategorias;
-    private ArrayList<Sucursal> sucursales;
+    private ArrayList<Articulo> articulos;
 
     public String getDenominacion() {return denominacion;}
     public void setDenominacion(String denominacion) {this.denominacion = denominacion;}
@@ -15,8 +15,8 @@ public class Categoria {
     public ArrayList<Categoria> getSubCategorias() {return subCategorias;}
     public void setSubCategorias(ArrayList<Categoria> subCategorias) {this.subCategorias = subCategorias;}
 
-    public ArrayList<Sucursal> getSucursales() {return sucursales;}
-    public void setSucursales(ArrayList<Sucursal> sucursales) {this.sucursales = sucursales;}
+    public ArrayList<Articulo> getArticulos() {return articulos;}
+    public void setArticulos(ArrayList<Articulo> articulos) {this.articulos = articulos;}
 
     public void addSubCategoria(Categoria c){
         if (subCategorias == null) subCategorias = new ArrayList<>();
@@ -29,12 +29,12 @@ public class Categoria {
         c.removeSubCategoria(null);
     }
 
-    public void addSucursal(Sucursal s){
-        if (sucursales == null) sucursales = new ArrayList<>();
-        sucursales.add(s);
+    public void addArticulo(Articulo a){
+        if (articulos == null) articulos = new ArrayList<>();
+        articulos.add(a);
     }
 
-    public void removeSucursal(Sucursal s){
-        sucursales.remove(s);
+    public void removeArticulo(Articulo a){
+        articulos.remove(a);
     }
 }

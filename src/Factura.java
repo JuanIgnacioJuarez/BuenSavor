@@ -8,7 +8,6 @@ public class Factura {
     private String mpPaymentType;
     private FormaPago formaPago;
     private Double totalVenta;
-    private Pedido pedido;
 
     public Factura() {}
 
@@ -42,7 +41,4 @@ public class Factura {
 
     public Double getTotalVenta() {return totalVenta;}
     public void setTotalVenta(Double totalVenta) {this.totalVenta = totalVenta;}
-
-    public Pedido getPedido() {return pedido;}
-    public void setPedido(Pedido pedido) {this.pedido = pedido;}
 }

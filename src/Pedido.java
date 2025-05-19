@@ -12,7 +12,6 @@ public class Pedido {
     private Sucursal sucursal;
     private Domicilio domicilio;
     private Factura factura;
-    private Cliente cliente;
     private ArrayList<DetallePedido> detallesPedido;
 
     public Pedido() {}
@@ -56,21 +55,14 @@ public class Pedido {
     public Factura getFactura() {return factura;}
     public void setFactura(Factura factura) {
         this.factura = factura;
-        factura.setPedido(this);
     }
-
-    public Cliente getCliente() {return cliente;}
-    public void setCliente(Cliente cliente) {this.cliente = cliente;}
 
     public void addDetallePedido(DetallePedido d){
         if (detallesPedido == null) detallesPedido = new ArrayList<>();
         detallesPedido.add(d);
-        d.setPedido(this);
     }
 
     public void removeDetallePedido(DetallePedido d){
         detallesPedido.remove(d);
     }
-
-
 }

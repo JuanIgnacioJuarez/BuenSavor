@@ -1,7 +1,6 @@
 public class Usuario {
     private String auth0Id;
     private String username;
-    private Cliente cliente;
 
     public Usuario() {}
 
@@ -15,7 +14,4 @@ public class Usuario {
 
     public String getUsername() {return username;}
     public void setUsername(String username) {this.username = username;}
-
-    public Cliente getCliente() {return cliente;}
-    public void setCliente(Cliente cliente) {this.cliente = cliente;}
 }

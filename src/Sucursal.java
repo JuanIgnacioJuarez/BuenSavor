@@ -8,7 +8,6 @@ public class Sucursal {
     private Domicilio domicilio;
     private ArrayList<Categoria> categorias;
     private ArrayList<Promocion> promociones;
-    private ArrayList<Pedido> pedidos;
 
     public Sucursal() {}
 
@@ -46,38 +45,21 @@ public class Sucursal {
     public ArrayList<Promocion> getPromociones() {return promociones;}
     public void setPromociones(ArrayList<Promocion> promociones) {this.promociones = promociones;}
 
-    public ArrayList<Pedido> getPedidos() {return pedidos;}
-    public void setPedidos(ArrayList<Pedido> pedidos) {this.pedidos = pedidos;}
-
     public void addCategoria(Categoria c){
         if (categorias == null) categorias = new ArrayList<>();
         categorias.add(c);
-        c.addSucursal(this);
     }
 
     public void removeCategoria(Categoria c){
         categorias.remove(c);
-        c.removeSucursal(this);
     }
 
     public void addPromocion(Promocion p){
         if (promociones == null) promociones = new ArrayList<>();
         promociones.add(p);
-        p.addSucursal(this);
     }
 
     public void removePromocion(Promocion p){
         promociones.remove(p);
-        p.removeSucursal(this);
-    }
-
-    public void addPedido(Pedido p){
-        if (pedidos == null) pedidos = new ArrayList<>();
-        pedidos.add(p);
-        p.setSucursal(this);
-    }
-
-    public void removePedido(Pedido p){
-        pedidos.remove(p);
     }
 }

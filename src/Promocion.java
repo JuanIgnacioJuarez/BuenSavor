@@ -10,9 +10,21 @@ public class Promocion {
     private String descripcionDescuento;
     private Double precioPromocional;
     private TipoPromocion tipoPromocion;
-    private ArrayList<Sucursal> sucursales;
     private ArrayList<Imagen> imagenes;
     private ArrayList<Articulo> articulos;
+
+    public Promocion() {}
+
+    public Promocion(String denominacion, Date fechaDesde, Date fechaHasta, Date horaDesde, Date horaHasta, String descripcionDescuento, Double precioPromocional, TipoPromocion tipoPromocion) {
+        this.denominacion = denominacion;
+        this.fechaDesde = fechaDesde;
+        this.fechaHasta = fechaHasta;
+        this.horaDesde = horaDesde;
+        this.horaHasta = horaHasta;
+        this.descripcionDescuento = descripcionDescuento;
+        this.precioPromocional = precioPromocional;
+        this.tipoPromocion = tipoPromocion;
+    }
 
     public String getDenominacion() {return denominacion;}
     public void setDenominacion(String denominacion) {this.denominacion = denominacion;}
@@ -38,23 +50,11 @@ public class Promocion {
     public TipoPromocion getTipoPromocion() {return tipoPromocion;}
     public void setTipoPromocion(TipoPromocion tipoPromocion) {this.tipoPromocion = tipoPromocion;}
 
-    public ArrayList<Sucursal> getSucursales() {return sucursales;}
-    public void setSucursales(ArrayList<Sucursal> sucursales) {this.sucursales = sucursales;}
-
     public ArrayList<Imagen> getImagenes() {return imagenes;}
     public void setImagenes(ArrayList<Imagen> imagenes) {this.imagenes = imagenes;}
 
     public ArrayList<Articulo> getArticulos() {return articulos;}
     public void setArticulos(ArrayList<Articulo> articulos) {this.articulos = articulos;}
-
-    public void addSucursal(Sucursal s){
-        if (sucursales == null) sucursales = new ArrayList<>();
-        sucursales.add(s);
-    }
-
-    public void removeSucursal(Sucursal s){
-        sucursales.remove(s);
-    }
 
     public void addImagen(Imagen i){
         if (imagenes == null) imagenes = new ArrayList<>();
